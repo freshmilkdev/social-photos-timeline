@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.timeLine {
+    width: 100%;
+    text-align: center;
+}
+
+.timeLine .bulletOuter {
+    display: inline-block;
+}
+
+.timeLine .bulletInner {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: red;
+}
