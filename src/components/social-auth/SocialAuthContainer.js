@@ -10,7 +10,7 @@ class AuthContainer extends React.Component {
     }
     render() {
         return (
-            <div>Yo</div>
+            <div onClick={this.authorizeVK}>VK</div>
         );
     }
 }
