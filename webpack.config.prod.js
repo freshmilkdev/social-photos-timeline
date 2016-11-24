@@ -1,19 +1,27 @@
 var path = require('path');
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 module.exports = {
-    devtool: 'eval',
+    devtool: 'cheap-module-source-map',
     entry: [
-        'webpack-dev-server/client?http://localhost:3004',
-        'webpack/hot/dev-server',
         './src/index'
     ],
     output: {
-        path: path.join(__dirname, 'dist'), //path to where webpack will build your stuff
-        filename: 'bundle.js',
-        publicPath: '/' // This is used to generate URLs to e.g. images
+        path: path.join(__dirname, 'dist'), // path to where webpack will build your stuff
+        filename: 'bundle.min.js',
+        publicPath: './' // This is used to generate URLs to e.g. images
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
+            }
+        }),
+        new ExtractTextPlugin('bundle.css'),
+        new webpack.optimize.OccurenceOrderPlugin(),
+        new webpack.optimize.DedupePlugin(),
+        new webpack.optimize.UglifyJsPlugin()
     ],
     module: {
         preLoaders: [
@@ -31,7 +39,7 @@ module.exports = {
             },
             {
                 test: /(\.css)$/,
-                loaders: ['style', 'css']
+                loader: ExtractTextPlugin.extract("css")
             },
             {
                 test: /\.(ttf|eot|svg|woff(2)?)(\S+)?$/,

@@ -17,3 +17,7 @@
     height: 10px;
     background: red;
 }
+
+.notification-message{
+    font-family: sans-serif;
+}

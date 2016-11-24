@@ -1,11 +1,13 @@
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var config = require('./webpack.config.dev');
-
-new WebpackDevServer(webpack(config), {
+var path = require('path');
+var open = require("open");
+let server = new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,
     hot: true,
     historyApiFallback: true,
+    contentBase: './src',
     stats: {
         // Config for minimal console.log mess.
         assets: false,
@@ -16,10 +18,13 @@ new WebpackDevServer(webpack(config), {
         chunks: false,
         chunkModules: false
     }
-}).listen(3004, 'localhost', function (err, result) {
+});
+
+server.listen(3004, 'localhost', function (err, result) {
     if (err) {
         return console.log(err);
     }
 
     console.log('Listening at http://localhost:3004/');
+    open('http://localhost:3004/');
 });
