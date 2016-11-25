@@ -14,7 +14,7 @@ import './styles/style.css';
 const store = configStore();
 
 const params = queryString.parse(location.hash);
-console.log(params);
+
 if(params.access_token){
     store.dispatch(setAuthUserSuccess(params));
     store.dispatch(loadAllPhotos(params));
