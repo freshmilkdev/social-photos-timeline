@@ -9,7 +9,7 @@ import {Provider} from 'react-redux';
 import {setAuthUserSuccess} from './actions/userActions';
 import {loadAllPhotos} from './actions/photosActions';
 import 'react-notifications/lib/notifications.css';
-import './styles/style.css';
+import './styles/style.scss';
 
 const store = configStore();
 

@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 
 const TimeLine = ({years, activeYear, setPhotosByYear}) => {
     let width = Math.floor(100 / years.length);
-    return (<div className="timeLine">
+    return (<div id="timeLine">
         {
             years.map((year, key)=> {
                 let className = `bulletOuter ${year == activeYear ? 'active' : ''}`;
@@ -13,7 +13,8 @@ const TimeLine = ({years, activeYear, setPhotosByYear}) => {
                     key={key}
                     className={className}
                     style={{width: `${width}%`}}>
-                    <div className="bulletInner"/>
+                    <div className="year">{year}</div>
+                    <div className="bulletInner" />
                 </div>);
             })
         }

@@ -1,5 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
+var autoprefixer = require('autoprefixer');
+
 module.exports = {
     devtool: 'eval',
     entry: [
@@ -34,10 +36,15 @@ module.exports = {
                 loaders: ['style', 'css']
             },
             {
+                test: /\.scss$/,
+                loaders: ["style", "css", "sass", "postcss"]
+            },
+            {
                 test: /\.(ttf|eot|svg|woff(2)?)(\S+)?$/,
                 loader: 'file-loader?name=[name].[ext]'
             },
             {test: /\.(png|jpg|gif)$/, loader: 'file-loader?name=images/[name].[ext]'}
-        ]
+        ],
+        postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ]
     }
 };

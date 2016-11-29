@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import TimeLine from './TimeLine';
-import PhotosList from './PhotosList';
+import PhotosGrid from './PhotosGrid';
 import {getUniqueYears, getPhotosByYear} from '../../selectors';
 class PhotosContainer extends React.Component {
     constructor(props, context) {
@@ -40,7 +40,7 @@ class PhotosContainer extends React.Component {
                     activeYear={this.state.activeYear}
                     setPhotosByYear={this.setPhotosByYear}
                 />
-                <PhotosList photos={this.state.photosByYear}/>
+                <PhotosGrid photos={this.state.photosByYear}/>
             </div>
         );
     }

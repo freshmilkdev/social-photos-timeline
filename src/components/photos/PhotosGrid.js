@@ -2,10 +2,10 @@ import React, {PropTypes} from 'react';
 
 const PhotosList = ({photos}) => {
 
-    return (<div>
+    return (<div id="photosGrid">
         {
             photos.map((photo, key)=> {
-                return (<img src={photo.src} key={key}/> );
+                return (<img src={photo.src_big} key={key}/> );
             })
         }
     </div>);
