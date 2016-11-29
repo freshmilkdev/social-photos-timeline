@@ -1,0 +1,46 @@
+@import "../../base/variables";
+@import "../../base/mixins";
+#timeLine {
+  width: 100%;
+  text-align: center;
+  margin: 20px 0;
+
+  .bulletOuter {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      border: 4px solid $vk-light-blue-color;
+      top: 7px;
+      left: 0;
+      width: 100%;
+      z-index: -10;
+      box-sizing: border-box;
+    }
+
+    .year {
+      @include font-sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      color: $vk-light-blue-color;
+      position: absolute;
+      bottom: -16px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+    }
+  }
+
+  .bulletInner {
+    @include circle-border-radius;
+    display: inline-block;
+    border: 6px solid $vk-light-blue-color;
+    width: 10px;
+    height: 10px;
+    background-color: $vk-light-grey-color;
+  }
+}

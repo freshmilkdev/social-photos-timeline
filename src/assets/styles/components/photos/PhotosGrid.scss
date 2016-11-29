@@ -1,0 +1,25 @@
+@import "../../base/media-queries";
+
+#photosGrid {
+  column-gap: 4px;
+  width: 100%;
+
+  @include phone-sm {
+    column-count: 1;
+  }
+  @include phone {
+    column-count: 2;
+  }
+  @include tablet {
+    column-count: 3;
+  }
+  @include desktop {
+    column-count: 4;
+  }
+
+  img {
+    display: inline-block;
+    margin-bottom: 0;
+    width: 100%;
+  }
+}

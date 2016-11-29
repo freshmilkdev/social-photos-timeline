@@ -1,0 +1,12 @@
+/*Mixins*/
+@mixin inline-block() {
+  display: inline-block;
+}
+
+@mixin font-sans-serif() {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@mixin circle-border-radius() {
+  border-radius: 50%;
+}
