@@ -9,7 +9,8 @@ class App extends React.Component {
     componentWillMount() {
         this.checkAuth(this.props);
     }
-    componentWillReceiveProps(nextProps){
+
+    componentWillReceiveProps(nextProps) {
         this.checkAuth(nextProps);
     }
 
@@ -25,10 +26,10 @@ class App extends React.Component {
 
     render() {
         return (
-            <div>
-                {this.props.children}
-                <NotificationContainer/>
-            </div>
+                <div>
+                    {this.props.children}
+                    <NotificationContainer/>
+                </div>
         );
     }
 }

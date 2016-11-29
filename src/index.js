@@ -9,8 +9,8 @@ import {Provider} from 'react-redux';
 import {setAuthUserSuccess} from './actions/userActions';
 import {loadAllPhotos} from './actions/photosActions';
 import 'react-notifications/lib/notifications.css';
-import './styles/style.scss';
-
+import './assets/styles/style.scss';
+import './assets/styles/social-icons.css';
 const store = configStore();
 
 const params = queryString.parse(location.hash);

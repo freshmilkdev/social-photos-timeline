@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {vkParams} from '../../config-auth/config';
+import SocialAuthButtons from './SocialAuthButtons';
 class AuthContainer extends React.Component {
     constructor(props, context) {
         super(props, context);
@@ -10,7 +11,9 @@ class AuthContainer extends React.Component {
     }
     render() {
         return (
-            <div onClick={this.authorizeVK}>VK</div>
+            <SocialAuthButtons
+                authorizeVK={this.authorizeVK}
+            />
         );
     }
 }
