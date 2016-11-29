@@ -1,7 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-
+var autoprefixer = require('autoprefixer');
 module.exports = {
     devtool: 'cheap-module-source-map',
     entry: [
@@ -42,10 +42,15 @@ module.exports = {
                 loader: ExtractTextPlugin.extract("css")
             },
             {
+                test: /\.scss$/,
+                loader: ExtractTextPlugin.extract("style", "css!postcss!sass")
+            },
+            {
                 test: /\.(ttf|eot|svg|woff(2)?)(\S+)?$/,
                 loader: 'file-loader?name=[name].[ext]'
             },
             {test: /\.(png|jpg|gif)$/, loader: 'file-loader?name=images/[name].[ext]'}
-        ]
+        ],
+        postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ]
     }
 };
